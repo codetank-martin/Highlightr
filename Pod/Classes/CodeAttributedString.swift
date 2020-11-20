@@ -193,7 +193,9 @@ open class CodeAttributedString : NSTextStorage
                     var fixedRange = NSMakeRange(range.location+locRange.location, locRange.length)
                     fixedRange.length = (fixedRange.location + fixedRange.length < string.length) ? fixedRange.length : string.length-fixedRange.location
                     fixedRange.length = (fixedRange.length >= 0) ? fixedRange.length : 0
-                    self.stringStorage.setAttributes(attrs, range: fixedRange)
+                    //self.stringStorage.setAttributes(attrs, range: fixedRange)
+                    self.stringStorage.addAttributes(attrs, range: fixedRange)
+                                                                                        
                 })
                 self.endEditing()
                 self.edited(TextStorageEditActions.editedAttributes, range: range, changeInLength: 0)
